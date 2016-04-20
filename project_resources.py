@@ -1,5 +1,6 @@
 from constants import *
-import json, os, sys, re, xlwt, xlrd
+import json, os, sys, re
+#import xlwt, xlrd
 
 path = os.path.realpath(__file__).replace("project_resources.py", "")
 with open(path+"project.cfg", "r", encoding="utf-8") as f:
