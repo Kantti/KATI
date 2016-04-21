@@ -109,7 +109,16 @@ except:
 
 print("getting first order freqs")
 
-first_order_freqs = get_first_order_freqs()
+try:
+    with open(config_data[PROJECT_PATH]+"sentence_first_order_freqs.json", "r", encoding="utf-8") as f:
+        first_order_freqs = json.load(f)
+except:
+    IOError
+    first_order_freqs = get_first_order_freqs()
+    with open(config_data[PROJECT_PATH]+"sentence_first_order_freqs.json", "w", encoding="utf-8") as f:
+        json.dump(first_order_freqs, f)
+
+
 tf = sum(config_data[CORPUS_FREQUENCIES])
 wordcount_ratio = tf/config_data[SENTENCE_CORPUS_WORDCOUNT]
 
